@@ -32,4 +32,21 @@ class Contact extends Db
             exit();
         }
     }
+
+    public function getAllContacts()
+    {
+        try {
+            $query = 'SELECT * FROM contacts';
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+
+            // 結果を連想配列として取得
+            $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $contacts;
+        } catch (PDOException $e) {
+            echo "データ取得失敗: " . $e->getMessage() . "\n";
+            return false;
+        }
+    }
 }

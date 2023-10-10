@@ -6,9 +6,13 @@ class ContactController extends Controller
     public function index(){
         $errorMessages = $_SESSION['errorMessages'] ?? [];
         $post = $_SESSION['post'] ?? [];
+
+        $contactModel = new Contact();
+        $allContacts = $contactModel->getAllContacts();
+
         $_SESSION['errorMessages'] = [];
         $_SESSION['post'] = [];
-        $this->view('contact/index',['errorMessages' => $errorMessages, 'post' => $post]);
+        $this->view('contact/index',['errorMessages' => $errorMessages, 'post' => $post, 'allContacts' => $allContacts]);
     }
 
     public function confimation(){
@@ -46,7 +50,6 @@ class ContactController extends Controller
             $_SESSION['errorMessages'] = $errorMessages;
             $_SESSION['post'] = $_POST;
             header('Location: /contact/index');
-            var_dump($errorMessages);
         } else {
             $_SESSION['post'] = $_POST;
 
@@ -73,6 +76,9 @@ class ContactController extends Controller
         );
 
         $this->view('contact/create-complete');
+        
+    }
+    public function edit(){
         
     }
 }

@@ -6,6 +6,7 @@
     <title>Casteria</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/contact.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script defer src="../../js/confirm.js"></script>
 </head>
@@ -52,8 +53,33 @@
                 </div>
             </form>
         </div>
+        <table class="design01">
+            <tr class="tabletr">
+                <th>氏名</th>
+                <th>フリガナ</th>
+                <th>電話番号</th>
+                <th>メールアドレス</th>
+                <th>お問い合わせ内容</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+
+            {foreach $allContacts as $contact}
+                <tr class="tabletr">
+                    <td>{$contact['name']}</td>
+                    <td>{$contact['kana']}</td>
+                    <td>{$contact['tel']}</td>
+                    <td>{$contact['email']}</td>
+                    <td>{$contact['body']|nl2br}</td>
+                    <td><a href="/contact/edit/{$contact['id']}" class="button">編集</a></td>
+                    <td><a href="/contact/delete/{$contact['id']}" class="button">削除</a></td>
+                </tr>
+            {/foreach}
+        </table>
     </div>
 </div>
+    
 </body>
 
 </html>

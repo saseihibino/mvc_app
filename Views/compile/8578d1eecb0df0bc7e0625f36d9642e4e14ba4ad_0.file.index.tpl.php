@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-10 15:30:03
+/* Smarty version 4.3.4, created on 2023-10-10 18:28:14
   from 'C:\xampp\htdocs\mvc_app\Views\contact\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6524ef6b50e321_70674487',
+  'unifunc' => 'content_6525192ede95e0_36101244',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8578d1eecb0df0bc7e0625f36d9642e4e14ba4ad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contact\\index.tpl',
-      1 => 1696919403,
+      1 => 1696928619,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6524ef6b50e321_70674487 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6525192ede95e0_36101244 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +29,7 @@ function content_6524ef6b50e321_70674487 (Smarty_Internal_Template $_smarty_tpl)
     <title>Casteria</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/contact.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <?php echo '<script'; ?>
  defer src="../../js/confirm.js"><?php echo '</script'; ?>
@@ -87,8 +88,47 @@ function content_6524ef6b50e321_70674487 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </form>
         </div>
+        <table class="design01">
+            <tr class="tabletr">
+                <th>氏名</th>
+                <th>フリガナ</th>
+                <th>電話番号</th>
+                <th>メールアドレス</th>
+                <th>お問い合わせ内容</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['allContacts']->value, 'contact');
+$_smarty_tpl->tpl_vars['contact']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['contact']->value) {
+$_smarty_tpl->tpl_vars['contact']->do_else = false;
+?>
+                <tr class="tabletr">
+                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['name'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['kana'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['tel'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['email'];?>
+</td>
+                    <td><?php echo nl2br((string) $_smarty_tpl->tpl_vars['contact']->value['body'], (bool) 1);?>
+</td>
+                    <td><a href="/contact/edit/<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
+" class="button">編集</a></td>
+                    <td><a href="/contact/delete/<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
+" class="button">削除</a></td>
+                </tr>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </table>
     </div>
 </div>
+    
 </body>
 
 </html>

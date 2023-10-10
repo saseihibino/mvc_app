@@ -59,6 +59,8 @@ function route($path, $httpMethod){
                     case ['create', 'post']:
                         $methodName = 'create';
                         break;
+                    case ['edit', 'get']:
+                        $methodName = 'edit';
                 }
                 break;    
             default:

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-10 14:39:43
+/* Smarty version 4.3.4, created on 2023-10-10 17:57:27
   from 'C:\xampp\htdocs\mvc_app\Views\contact\confimation.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6524e39f197ef5_72489188',
+  'unifunc' => 'content_652511f70eb0c7_93221761',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0f5afd3a6e09ee827c871a1def9d440e491b11de' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contact\\confimation.tpl',
-      1 => 1696916368,
+      1 => 1696928216,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6524e39f197ef5_72489188 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652511f70eb0c7_93221761 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -67,6 +67,10 @@ function content_6524e39f197ef5_72489188 (Smarty_Internal_Template $_smarty_tpl)
                     <label for="body">お問い合わせ内容</label>
                     <textarea rows="8" name="body" placeholder=""><?php echo (($tmp = $_smarty_tpl->tpl_vars['post']->value['body'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 </textarea>
+                </div>
+
+                <div>
+                    <p>上記内容でよろしいですか？</p>
                 </div>
 
                 <div class="edit-button">

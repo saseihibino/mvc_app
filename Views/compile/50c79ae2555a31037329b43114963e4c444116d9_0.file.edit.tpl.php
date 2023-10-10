@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-05 18:27:43
+/* Smarty version 4.3.4, created on 2023-10-10 18:27:40
   from 'C:\xampp\htdocs\mvc_app\Views\user\edit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_651e818f8ae978_39242298',
+  'unifunc' => 'content_6525190cb29881_68475244',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '50c79ae2555a31037329b43114963e4c444116d9' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\user\\edit.tpl',
-      1 => 1696497128,
+      1 => 1696577632,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:layout/footer.tpl' => 1,
   ),
 ),false)) {
-function content_651e818f8ae978_39242298 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6525190cb29881_68475244 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +61,7 @@ function content_651e818f8ae978_39242298 (Smarty_Internal_Template $_smarty_tpl)
 
                 <div class="form-item">
                     <label for="email">メールアドレス</label>
-                    <input type="email" name="email" placeholder="exemple@cin-group.co.jp" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['data']->value->email ?? null)===null||$tmp==='' ? $_smarty_tpl->tpl_vars['data']->value['email'] ?? null : $tmp);?>
+                    <input type="email" name="email" placeholder="exemple@cin-group.co.jp" value="<?php echo (($tmp = $_smarty_tpl->tpl_vars['data']->value->email ?? null)===null||$tmp==='' ? 'email' ?? null : $tmp);?>
 ">
                     <p class="error-text"><?php echo (($tmp = $_smarty_tpl->tpl_vars['errorMessages']->value['email'] ?? null)===null||$tmp==='' ? '' ?? null : $tmp);?>
 </p>
