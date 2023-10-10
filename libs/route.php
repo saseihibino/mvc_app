@@ -46,7 +46,21 @@ function route($path, $httpMethod){
                         $methodName = 'delete';
                         break;
                 }
-            break;
+                break;
+            case 'contact':
+                $controllerName = 'ContactController';
+                switch($case){
+                    case ['index', 'get']:
+                        $methodName = 'index';
+                        break;
+                    case ['confimation', 'post']:
+                        $methodName = 'confimation';
+                        break;
+                    case ['create', 'post']:
+                        $methodName = 'create';
+                        break;
+                }
+                break;    
             default:
                 $controllerName = '';
                 $methodName = '';

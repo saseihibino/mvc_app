@@ -44,6 +44,10 @@ form {
     margin-bottom: 0.75em;
     width: 100%;
 }
+.form-item-1 {
+    margin-bottom: 0.75em;
+    width: 100%;
+}
 
 .form-item input {
     background: #fafafa;
