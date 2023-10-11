@@ -40,13 +40,67 @@ class Contact extends Db
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
-            // 結果を連想配列として取得
             $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             return $contacts;
         } catch (PDOException $e) {
             echo "データ取得失敗: " . $e->getMessage() . "\n";
             return false;
+        }
+    }
+    public function getContactById(string $id): stdClass
+    {
+        try{
+            $query = 'SELECT * FROM contacts WHERE id = :id';
+            $stmt = $this->dbh->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            echo "認証エラー: ". $e->getMessage(). "\n";
+            exit();
+        }
+    }
+    public function update(string $id, string $name, string $kana, int $tel, string $email, string $body)
+    {
+        try{
+            $this->dbh->beginTransaction();
+            $query = 'UPDATE contacts SET name = :name, kana = :kana, tel = :tel, email = :email, body = :body';
+            $query .= ' WHERE id = :id';
+            $stmt = $this->dbh->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':kana', $kana);
+            $stmt->bindParam(':tel', $tel);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':body', $body);
+            
+            $stmt->execute();
+            // トランザクションを完了することでデータの書き込みを確定させる
+            $this->dbh->commit();
+            return true;
+        } catch (PDOException $e) {
+            // 不具合があった場合トランザクションをロールバックして変更をなかったコトにする。
+            $this->dbh->rollBack();
+            echo "登録失敗: " . $e->getMessage() . "\n";
+            exit();
+        }
+    }
+    public function deleteContactById(string $id){
+        try{
+            $this->dbh->beginTransaction();
+            $query = 'DELETE FROM users WHERE id = :id';
+            $stmt = $this->dbh->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            // トランザクションを完了することでデータの書き込みを確定させる
+            $this->dbh->commit();
+            return;
+        } catch (PDOException $e) {
+            // 不具合があった場合トランザクションをロールバックして変更をなかったコトにする。
+            $this->dbh->rollBack();
+            echo "退会失敗: " . $e->getMessage() . "\n";
+            exit();
         }
     }
 }

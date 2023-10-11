@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-10 18:28:14
+/* Smarty version 4.3.4, created on 2023-10-11 18:42:43
   from 'C:\xampp\htdocs\mvc_app\Views\contact\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6525192ede95e0_36101244',
+  'unifunc' => 'content_65266e13bb73f7_39599977',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8578d1eecb0df0bc7e0625f36d9642e4e14ba4ad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contact\\index.tpl',
-      1 => 1696928619,
+      1 => 1697017351,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6525192ede95e0_36101244 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65266e13bb73f7_39599977 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -117,10 +117,18 @@ $_smarty_tpl->tpl_vars['contact']->do_else = false;
 </td>
                     <td><?php echo nl2br((string) $_smarty_tpl->tpl_vars['contact']->value['body'], (bool) 1);?>
 </td>
-                    <td><a href="/contact/edit/<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
-" class="button">編集</a></td>
-                    <td><a href="/contact/delete/<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
-" class="button">削除</a></td>
+                    <td>
+                        <form action="/contact/edit" method="post">
+                            <button type="submit" name="id" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
+">編集</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/contact/delete" method="post">
+                            <button type="submit" name="id" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
+">削除</button>
+                        </form>
+                    </td>
                 </tr>
             <?php
 }

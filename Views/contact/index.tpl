@@ -72,8 +72,14 @@
                     <td>{$contact['tel']}</td>
                     <td>{$contact['email']}</td>
                     <td>{$contact['body']|nl2br}</td>
-                    <td><a href="/contact/edit/{$contact['id']}" class="button">編集</a></td>
-                    <td><a href="/contact/delete/{$contact['id']}" class="button">削除</a></td>
+                    <td>
+                        <form action="/contact/edit" method="post">
+                            <button type="submit" name="id" value="{$contact['id']}">編集</button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="/contact/delete?id={$contact['id']}" class="button mt-4" onclick="return confirm('本当に削除しますか?')">削除</a>
+                    </td>
                 </tr>
             {/foreach}
         </table>
