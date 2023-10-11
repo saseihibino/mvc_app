@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 18:42:43
+/* Smarty version 4.3.4, created on 2023-10-11 18:49:40
   from 'C:\xampp\htdocs\mvc_app\Views\contact\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65266e13bb73f7_39599977',
+  'unifunc' => 'content_65266fb472e0d8_87139810',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8578d1eecb0df0bc7e0625f36d9642e4e14ba4ad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contact\\index.tpl',
-      1 => 1697017351,
+      1 => 1697017624,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65266e13bb73f7_39599977 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65266fb472e0d8_87139810 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -124,10 +124,8 @@ $_smarty_tpl->tpl_vars['contact']->do_else = false;
                         </form>
                     </td>
                     <td>
-                        <form action="/contact/delete" method="post">
-                            <button type="submit" name="id" value="<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
-">削除</button>
-                        </form>
+                        <a href="/contact/delete?id=<?php echo $_smarty_tpl->tpl_vars['contact']->value['id'];?>
+" class="button mt-4" onclick="return confirm('本当に削除しますか?')">削除</a>
                     </td>
                 </tr>
             <?php

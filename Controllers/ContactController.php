@@ -16,6 +16,7 @@ class ContactController extends Controller
     }
 
     public function confimation(){
+        
 
         if (empty($_POST['name'])) {
             $errorMessages['name'] = '氏名を入力してください。';
@@ -166,11 +167,7 @@ class ContactController extends Controller
         }     
     }
     public function delete(){
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
-        } else {
-            $id = $_SESSION['id'];
-        }
+        $id = $_GET['id'];
         $contact = new contact;
         $contact->deleteContactById($id);
         header('Location: /contact/index');

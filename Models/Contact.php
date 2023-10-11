@@ -89,7 +89,7 @@ class Contact extends Db
     public function deleteContactById(string $id){
         try{
             $this->dbh->beginTransaction();
-            $query = 'DELETE FROM users WHERE id = :id';
+            $query = 'DELETE FROM contacts WHERE id = :id';
             $stmt = $this->dbh->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
