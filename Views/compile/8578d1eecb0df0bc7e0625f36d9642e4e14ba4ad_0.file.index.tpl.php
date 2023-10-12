@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-11 18:49:40
+/* Smarty version 4.3.4, created on 2023-10-12 14:23:28
   from 'C:\xampp\htdocs\mvc_app\Views\contact\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_65266fb472e0d8_87139810',
+  'unifunc' => 'content_652782d077fae1_35904013',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8578d1eecb0df0bc7e0625f36d9642e4e14ba4ad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contact\\index.tpl',
-      1 => 1697017624,
+      1 => 1697088204,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65266fb472e0d8_87139810 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652782d077fae1_35904013 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +41,7 @@ function content_65266fb472e0d8_87139810 (Smarty_Internal_Template $_smarty_tpl)
     <div class="container-field">
         <div class="form-wrapper">
             <h1>お問い合わせ</h1>
-            <form action="/contact/confimation" method="post">
+            <form action="/contact/confimation" id="myForm" method="post">
 
                 <div class="form-item">
                     <label for="name">氏名</label>
@@ -107,13 +107,13 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['contact']->value
 $_smarty_tpl->tpl_vars['contact']->do_else = false;
 ?>
                 <tr class="tabletr">
-                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['name'];?>
+                    <td><?php echo htmlspecialchars((string)$_smarty_tpl->tpl_vars['contact']->value['name'], ENT_QUOTES, 'UTF-8', true);?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['kana'];?>
+                    <td><?php echo htmlspecialchars((string)$_smarty_tpl->tpl_vars['contact']->value['kana'], ENT_QUOTES, 'UTF-8', true);?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['tel'];?>
+                    <td><?php echo htmlspecialchars((string)$_smarty_tpl->tpl_vars['contact']->value['tel'], ENT_QUOTES, 'UTF-8', true);?>
 </td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['contact']->value['email'];?>
+                    <td><?php echo htmlspecialchars((string)$_smarty_tpl->tpl_vars['contact']->value['email'], ENT_QUOTES, 'UTF-8', true);?>
 </td>
                     <td><?php echo nl2br((string) $_smarty_tpl->tpl_vars['contact']->value['body'], (bool) 1);?>
 </td>

@@ -10,9 +10,12 @@ class Contact extends Db
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function create(string $name, string $kana, int $tel, string $email, string $body)
+    public function create(string $name, string $kana, $tel, string $email, string $body)
     {
         try{
+            if (empty($tel)) {
+                $tel = null; // または空の文字列 '' など、データベースが許容する値を設定
+            } 
             $this->dbh->beginTransaction();
             $query = 'INSERT INTO contacts (name, kana,  tel, email, body) VALUES (:name, :kana, :tel, :email, :body)';
             $stmt = $this->dbh->prepare($query);
@@ -47,11 +50,13 @@ class Contact extends Db
         } catch (PDOException $e) {
             echo "データ取得失敗: " . $e->getMessage() . "\n";
             return false;
+            exit();
         }
     }
     public function getContactById(string $id): stdClass
     {
         try{
+
             $query = 'SELECT * FROM contacts WHERE id = :id';
             $stmt = $this->dbh->prepare($query);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -62,9 +67,12 @@ class Contact extends Db
             exit();
         }
     }
-    public function update(string $id, string $name, string $kana, int $tel, string $email, string $body)
+    public function update(string $id, string $name, string $kana, $tel, string $email, string $body)
     {
         try{
+            if (empty($tel)) {
+                $tel = null; // または空の文字列 '' など、データベースが許容する値を設定
+            } 
             $this->dbh->beginTransaction();
             $query = 'UPDATE contacts SET name = :name, kana = :kana, tel = :tel, email = :email, body = :body';
             $query .= ' WHERE id = :id';

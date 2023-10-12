@@ -16,7 +16,7 @@
     <div class="container-field">
         <div class="form-wrapper">
             <h1>お問い合わせ</h1>
-            <form action="/contact/confimation" method="post">
+            <form action="/contact/confimation" id="myForm" method="post">
 
                 <div class="form-item">
                     <label for="name">氏名</label>
@@ -67,10 +67,10 @@
 
             {foreach $allContacts as $contact}
                 <tr class="tabletr">
-                    <td>{$contact['name']}</td>
-                    <td>{$contact['kana']}</td>
-                    <td>{$contact['tel']}</td>
-                    <td>{$contact['email']}</td>
+                    <td>{$contact['name']|escape:'html'}</td>
+                    <td>{$contact['kana']|escape:'html'}</td>
+                    <td>{$contact['tel']|escape:'html'}</td>
+                    <td>{$contact['email']|escape:'html'}</td>
                     <td>{$contact['body']|nl2br}</td>
                     <td>
                         <form action="/contact/edit" method="post">
