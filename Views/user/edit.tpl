@@ -31,7 +31,7 @@
 
                 <div class="form-item">
                     <label for="email">メールアドレス</label>
-                    <input type="email" name="email" placeholder="exemple@cin-group.co.jp" value="{$data->email|default:$data['email']}">
+                    <input type="email" name="email" placeholder="exemple@cin-group.co.jp" value="{$data->email|default:'email'}">
                     <p class="error-text">{$errorMessages['email']|default:''}</p>
                 </div>
 
