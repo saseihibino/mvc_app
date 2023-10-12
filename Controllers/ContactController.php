@@ -16,7 +16,6 @@ class ContactController extends Controller
     }
 
     public function confimation(){
-        
 
         if (empty($_POST['name'])) {
             $errorMessages['name'] = '氏名を入力してください。';
@@ -76,7 +75,13 @@ class ContactController extends Controller
             $_POST['body']
         );
 
-        $this->view('contact/create-complete');
+        if($result === true){
+            $this->view('contact/create-complete');
+            exit();
+        }else{
+            header('Location: /');
+            exit();
+        }
         
     }
     public function edit(){

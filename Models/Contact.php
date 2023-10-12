@@ -25,6 +25,7 @@ class Contact extends Db
             $stmt->execute();
             // トランザクションを完了することでデータの書き込みを確定させる
             $this->dbh->commit();
+            return true;
         } catch (PDOException $e) {
             // 不具合があった場合トランザクションをロールバックして変更をなかったコトにする。
             $this->dbh->rollBack();
