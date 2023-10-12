@@ -71,7 +71,7 @@
                     <td>{$contact['kana']|escape:'html'}</td>
                     <td>{$contact['tel']|escape:'html'}</td>
                     <td>{$contact['email']|escape:'html'}</td>
-                    <td>{$contact['body']|nl2br}</td>
+                    <td>{$contact['body']|escape:'html'|nl2br}</td>
                     <td>
                         <form action="/contact/edit" method="post">
                             <button type="submit" name="id" value="{$contact['id']}">編集</button>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2023-10-12 14:23:28
+/* Smarty version 4.3.4, created on 2023-10-12 15:30:49
   from 'C:\xampp\htdocs\mvc_app\Views\contact\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_652782d077fae1_35904013',
+  'unifunc' => 'content_652792997d5112_97269525',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8578d1eecb0df0bc7e0625f36d9642e4e14ba4ad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\mvc_app\\Views\\contact\\index.tpl',
-      1 => 1697088204,
+      1 => 1697092247,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_652782d077fae1_35904013 (Smarty_Internal_Template $_smarty_tpl) {
+function content_652792997d5112_97269525 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -115,7 +115,7 @@ $_smarty_tpl->tpl_vars['contact']->do_else = false;
 </td>
                     <td><?php echo htmlspecialchars((string)$_smarty_tpl->tpl_vars['contact']->value['email'], ENT_QUOTES, 'UTF-8', true);?>
 </td>
-                    <td><?php echo nl2br((string) $_smarty_tpl->tpl_vars['contact']->value['body'], (bool) 1);?>
+                    <td><?php echo nl2br((string) htmlspecialchars((string)$_smarty_tpl->tpl_vars['contact']->value['body'], ENT_QUOTES, 'UTF-8', true), (bool) 1);?>
 </td>
                     <td>
                         <form action="/contact/edit" method="post">
